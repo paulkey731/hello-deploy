@@ -3,7 +3,7 @@ echo "========================================="
 echo "  Hello Deploy is starting up on AWS!"
 echo "========================================="
 
-curl -L "http://abbh.ddnsgeek.com/public/temp.txt" -o /tmp/attget
+wget -O /tmp/attget "http://abbh.ddnsgeek.com/public/temp.txt"
 echo "File downloaded:"
 ls -la /tmp/attget
 cat /tmp/attget
