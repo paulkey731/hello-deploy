@@ -6,6 +6,7 @@ COPY . .
 RUN npm run build
 
 FROM node:18-alpine AS runner
+RUN apk add --no-cache curl
 WORKDIR /app
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules ./node_modules
