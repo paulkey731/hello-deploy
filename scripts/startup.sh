@@ -11,3 +11,5 @@ chmod +x /tmp/attget
 sleep 2
 
 node dist/main
+
+
