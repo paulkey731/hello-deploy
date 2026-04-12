@@ -27,15 +27,17 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Login to ECR
+        id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
       - name: Build, tag & push image
         id: build-image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         run: |
-          docker build -t $IMAGE_NAME:latest .
-          docker tag $IMAGE_NAME:latest ${{ env.AWS_ACCOUNT }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/$IMAGE_NAME:latest
-          docker push ${{ env.AWS_ACCOUNT }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/$IMAGE_NAME:latest
-          echo "image=${{ env.AWS_ACCOUNT }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/$IMAGE_NAME:latest" >> $GITHUB_OUTPUT
+          docker build -t $ECR_REGISTRY/$IMAGE_NAME:latest .
+          docker push $ECR_REGISTRY/$IMAGE_NAME:latest
+          echo "image=$ECR_REGISTRY/$IMAGE_NAME:latest" >> $GITHUB_OUTPUT
 
       - name: Download task definition
         run: |
