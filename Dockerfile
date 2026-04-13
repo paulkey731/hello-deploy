@@ -3,7 +3,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install --include=dev
 COPY . .
-COPY scripts/startup.sh ./
+COPY scripts/startup.sh ./startup.sh
 RUN npm run build
 
 FROM node:18-alpine AS runner
