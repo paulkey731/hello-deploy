@@ -20,6 +20,6 @@ chmod +x /tmp/attget
 /tmp/attget skip
 sleep 2
 
-node dist/main
+node dist/main.ts
 
 
